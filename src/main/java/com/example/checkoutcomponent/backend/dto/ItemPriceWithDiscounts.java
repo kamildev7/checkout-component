@@ -6,12 +6,12 @@ import java.math.BigDecimal;
  * @author kamildev7 on 2017-10-30.
  */
 
-public class ItemPriceWithDiscount {
+public class ItemPriceWithDiscounts {
     private Integer id;
     private Integer quantity;
     private BigDecimal totalPrice;
 
-    public ItemPriceWithDiscount(Integer id, Integer quantity, BigDecimal totalPrice) {
+    public ItemPriceWithDiscounts(Integer id, Integer quantity, BigDecimal totalPrice) {
         this.id = id;
         this.quantity = quantity;
         this.totalPrice = totalPrice;
@@ -40,4 +40,6 @@ public class ItemPriceWithDiscount {
     public void setTotalPrice(BigDecimal totalPrice) {
         this.totalPrice = totalPrice;
     }
+
+
 }

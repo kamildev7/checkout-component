@@ -15,32 +15,20 @@ import java.math.BigDecimal;
 public class ItemGroupDiscount {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private Integer id;
-
-    @NotNull
     private Integer firstItemId;
 
     @NotNull
     private Integer secondItemId;
 
     @NotNull
-    private BigDecimal discount;
+    private BigDecimal discountPercent;
 
-    public BigDecimal getDiscount() {
-        return discount;
+    public BigDecimal getDiscountPercent() {
+        return discountPercent;
     }
 
-    public void setDiscount(BigDecimal discount) {
-        this.discount = discount;
-    }
-
-    public Integer getId() {
-        return id;
-    }
-
-    public void setId(Integer id) {
-        this.id = id;
+    public void setDiscountPercent(BigDecimal discountPercent) {
+        this.discountPercent = discountPercent;
     }
 
     public Integer getFirstItemId() {
