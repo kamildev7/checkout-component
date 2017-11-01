@@ -14,14 +14,6 @@ public class Cart {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer id;
 
-    public Integer getId() {
-        return id;
-    }
-
-    public void setId(Integer id) {
-        this.id = id;
-    }
-
     //Item and quantity
     @ElementCollection
     private Map<Item, Integer> itemsCount;
@@ -32,6 +24,14 @@ public class Cart {
 
     public void setItemsCount(Map<Item, Integer> itemsCount) {
         this.itemsCount = itemsCount;
+    }
+
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
     }
 
     @Override

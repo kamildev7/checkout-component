@@ -4,6 +4,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.validation.constraints.NotNull;
 import java.math.BigDecimal;
 
 /**
@@ -18,11 +19,16 @@ public class Item {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer id;
 
+    @NotNull
     private String name;
+    @NotNull
     private BigDecimal price;
+
+    @NotNull
+    private boolean hasDiscount;
+
     private BigDecimal specialPrice;
     private int quantityRequirementForDiscount;
-    private boolean hasDiscount;
 
     public boolean isHasDiscount() {
         return hasDiscount;
