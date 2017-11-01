@@ -3,7 +3,7 @@ package com.example.checkoutcomponent.backend.services;
 import com.example.checkoutcomponent.backend.checkoutCalculator.Calculator;
 import com.example.checkoutcomponent.backend.domain.Item;
 import com.example.checkoutcomponent.backend.dto.CheckoutReceipt;
-import com.example.checkoutcomponent.backend.dto.ItemPriceWithDiscount;
+import com.example.checkoutcomponent.backend.dto.ItemPriceWithDiscounts;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
@@ -22,9 +22,9 @@ public class CheckoutService {
     private Calculator itemCalculator;
 
     public CheckoutReceipt checkout(Map<Item, Integer> itemsCount) {
-        List<ItemPriceWithDiscount> itemsWithDiscount = itemCalculator.calculateTotalPriceOfItems(itemsCount);
-        BigDecimal totalPrice = itemCalculator.calculateTotalPriceForCheckout(itemsWithDiscount);
+        List<ItemPriceWithDiscounts> itemsWithDiscounts = itemCalculator.calculatePricesOfItemsWithDiscounts(itemsCount);
+        BigDecimal checkoutPrice = itemCalculator.calculateTotalPriceForCheckout(itemsWithDiscounts);
 
-        return new CheckoutReceipt(itemsWithDiscount, totalPrice);
+        return new CheckoutReceipt(itemsWithDiscounts, checkoutPrice);
     }
 }

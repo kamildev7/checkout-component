@@ -2,7 +2,9 @@ package com.example.checkoutcomponent.backend.loader;
 
 import com.example.checkoutcomponent.backend.domain.Cart;
 import com.example.checkoutcomponent.backend.domain.Item;
+import com.example.checkoutcomponent.backend.domain.ItemGroupDiscount;
 import com.example.checkoutcomponent.backend.services.CartService;
+import com.example.checkoutcomponent.backend.services.ItemGroupDiscountService;
 import com.example.checkoutcomponent.backend.services.ItemService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.ApplicationArguments;
@@ -25,6 +27,9 @@ public class DataLoader implements ApplicationRunner {
 
     @Autowired
     private CartService cartService;
+
+    @Autowired
+    private ItemGroupDiscountService itemGroupDiscountService;
 
     @Override
     public void run(ApplicationArguments applicationArguments) throws Exception {
@@ -62,12 +67,23 @@ public class DataLoader implements ApplicationRunner {
 
         Cart cart = new Cart();
         Map<Item, Integer> itemMap = new HashMap<>();
-        itemMap.put(item, 13);
-        itemMap.put(item2, 11);
-        itemMap.put(item3, 7);
+        itemMap.put(item, 3);
+        itemMap.put(item2, 5);
+        itemMap.put(item3, 3);
         itemMap.put(item4, 2);
-
         cart.setItemsCount(itemMap);
         cartService.saveOrUpdate(cart);
+
+        ItemGroupDiscount itemGroupDiscount = new ItemGroupDiscount();
+        itemGroupDiscount.setFirstItemId(1);
+        itemGroupDiscount.setSecondItemId(2);
+        itemGroupDiscount.setDiscountPercent(BigDecimal.valueOf(50));
+        itemGroupDiscountService.saveOrUpdate(itemGroupDiscount);
+
+        ItemGroupDiscount itemGroupDiscount2 = new ItemGroupDiscount();
+        itemGroupDiscount2.setFirstItemId(2);
+        itemGroupDiscount2.setSecondItemId(1);
+        itemGroupDiscount2.setDiscountPercent(BigDecimal.valueOf(50));
+        itemGroupDiscountService.saveOrUpdate(itemGroupDiscount2);
     }
 }

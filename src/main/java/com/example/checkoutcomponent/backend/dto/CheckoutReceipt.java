@@ -8,19 +8,19 @@ import java.util.List;
  */
 
 public class CheckoutReceipt {
-    private List<ItemPriceWithDiscount> items;
+    private List<ItemPriceWithDiscounts> items;
     private BigDecimal totalPrice;
 
-    public CheckoutReceipt(List<ItemPriceWithDiscount> items, BigDecimal totalPrice) {
+    public CheckoutReceipt(List<ItemPriceWithDiscounts> items, BigDecimal totalPrice) {
         this.items = items;
         this.totalPrice = totalPrice;
     }
 
-    public List<ItemPriceWithDiscount> getItems() {
+    public List<ItemPriceWithDiscounts> getItems() {
         return items;
     }
 
-    public void setItems(List<ItemPriceWithDiscount> items) {
+    public void setItems(List<ItemPriceWithDiscounts> items) {
         this.items = items;
     }
 

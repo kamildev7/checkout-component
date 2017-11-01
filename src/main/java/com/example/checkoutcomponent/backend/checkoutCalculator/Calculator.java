@@ -1,7 +1,7 @@
 package com.example.checkoutcomponent.backend.checkoutCalculator;
 
 import com.example.checkoutcomponent.backend.domain.Item;
-import com.example.checkoutcomponent.backend.dto.ItemPriceWithDiscount;
+import com.example.checkoutcomponent.backend.dto.ItemPriceWithDiscounts;
 
 import java.math.BigDecimal;
 import java.util.List;
@@ -12,7 +12,13 @@ import java.util.Map;
  */
 
 public interface Calculator {
-    List<ItemPriceWithDiscount> calculateTotalPriceOfItems(Map<Item, Integer> itemsCount);
+     BigDecimal ONE_HUNDRED = new BigDecimal(100);
 
-    BigDecimal calculateTotalPriceForCheckout(List<ItemPriceWithDiscount> items);
+    List<ItemPriceWithDiscounts> calculatePricesOfItemsWithDiscounts(Map<Item, Integer> itemsCount);
+
+    BigDecimal calculateTotalPriceForCheckout(List<ItemPriceWithDiscounts> items);
+
+    static BigDecimal calculatePercentageOfNumber(BigDecimal base, BigDecimal percentage){
+        return base.multiply(percentage).divide(ONE_HUNDRED);
+    }
 }
