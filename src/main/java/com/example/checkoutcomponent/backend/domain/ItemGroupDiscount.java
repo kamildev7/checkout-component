@@ -5,6 +5,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.validation.constraints.NotNull;
+import java.math.BigDecimal;
 
 /**
  * @author kamildev7 on 2017-11-01.
@@ -22,6 +23,17 @@ public class ItemGroupDiscount {
 
     @NotNull
     private Integer secondItemId;
+
+    @NotNull
+    private BigDecimal discount;
+
+    public BigDecimal getDiscount() {
+        return discount;
+    }
+
+    public void setDiscount(BigDecimal discount) {
+        this.discount = discount;
+    }
 
     public Integer getId() {
         return id;
