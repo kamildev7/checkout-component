@@ -19,8 +19,8 @@ public class Item {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer id;
 
-    @NotNull
     private String name;
+
     @NotNull
     private BigDecimal price;
 
